@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "username": "Aero",
+    "email": "aero81710@gmail.com",
+    "password": "Hh123456@@",
+    "role": "owner",
+    "emailVerified": true,
+    "created": "2025-04-09T12:13:55.598Z"
+  },
+  {
+    "id": "1744200835598",
+    "email": "hossamelkady2512@gmail.com",
+    "username": "Aero",
+    "password": "Hh1234",
+    "emailVerified": true,
+    "role": "user",
+    "created": "2025-04-09T12:13:55.598Z"
+  }
+]

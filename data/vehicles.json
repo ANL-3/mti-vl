@@ -1,0 +1,112 @@
+[
+  {
+    "id": "sample1",
+    "name": "M1A2 Abrams",
+    "type": "ground",
+    "value": 4000,
+    "demand": "high",
+    "scarcity": "rare",
+    "trend": "rising",
+    "functionality": 8,
+    "imageUrl": "https://images.unsplash.com/photo-1621522626370-ec009a90fbf1"
+  },
+  {
+    "id": "sample2",
+    "name": "F-22 Raptor",
+    "type": "air",
+    "value": 7500,
+    "demand": "high",
+    "scarcity": "very-rare",
+    "trend": "stable",
+    "functionality": 9,
+    "imageUrl": "https://images.unsplash.com/photo-1620059116993-398c21ce8406"
+  },
+  {
+    "id": "sample3",
+    "name": "USS Nimitz",
+    "type": "naval",
+    "value": 10000,
+    "demand": "medium",
+    "scarcity": "legendary",
+    "trend": "stable",
+    "functionality": 10,
+    "imageUrl": "https://images.unsplash.com/photo-1511213966740-24d719a0a814"
+  },
+  {
+    "id": "sample4",
+    "name": "Humvee",
+    "type": "ground",
+    "value": 1500,
+    "demand": "medium",
+    "scarcity": "common",
+    "trend": "falling",
+    "functionality": 6,
+    "imageUrl": "https://images.unsplash.com/photo-1578269174936-2709b6aeb913"
+  },
+  {
+    "id": "sample5",
+    "name": "UH-60 Black Hawk",
+    "type": "air",
+    "value": 5000,
+    "demand": "high",
+    "scarcity": "uncommon",
+    "trend": "rising",
+    "functionality": 7,
+    "imageUrl": "https://images.unsplash.com/photo-1548266652-99cf27f65d34"
+  },
+  {
+    "id": "sample6",
+    "name": "Type 99 Tank",
+    "type": "ground",
+    "value": 3500,
+    "demand": "medium",
+    "scarcity": "uncommon",
+    "trend": "stable",
+    "functionality": 7,
+    "imageUrl": "https://images.unsplash.com/photo-1621526841495-d05960b10542"
+  },
+  {
+    "id": "sample7",
+    "name": "F-35 Lightning II",
+    "type": "air",
+    "value": 8000,
+    "demand": "very-high",
+    "scarcity": "very-rare",
+    "trend": "rising",
+    "functionality": 9,
+    "imageUrl": "https://images.unsplash.com/photo-1517373116369-9bdb8cdc9f62"
+  },
+  {
+    "id": "sample8",
+    "name": "Los Angeles-class Submarine",
+    "type": "naval",
+    "value": 9000,
+    "demand": "high",
+    "scarcity": "very-rare",
+    "trend": "stable",
+    "functionality": 9,
+    "imageUrl": "https://images.unsplash.com/photo-1665667682225-52b19109df81"
+  },
+  {
+    "id": "sample9",
+    "name": "AH-64 Apache",
+    "type": "air",
+    "value": 6000,
+    "demand": "high",
+    "scarcity": "rare",
+    "trend": "rising",
+    "functionality": 8,
+    "imageUrl": "https://images.unsplash.com/photo-1579466683697-98f373e33cbe"
+  },
+  {
+    "id": "sample10",
+    "name": "Arleigh Burke-class Destroyer",
+    "type": "naval",
+    "value": 8500,
+    "demand": "medium",
+    "scarcity": "very-rare",
+    "trend": "stable",
+    "functionality": 9,
+    "imageUrl": "https://images.unsplash.com/photo-1544984243-ec57ea16fe25"
+  }
+]

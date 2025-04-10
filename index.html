@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Military Tycoon Value List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dark-mode.css" id="theme-style">
+</head>
+<body class="dark-mode">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <svg width="40" height="40" viewBox="0 0 40 40" class="logo">
+                    <rect width="40" height="40" rx="8" fill="#34495e"/>
+                    <text x="8" y="28" fill="#ecf0f1" font-size="24" font-weight="bold">MT</text>
+                </svg>
+                Military Tycoon Value List
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/value-list.html">Value List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/trade-calculator.html">Trade Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/community.html">Community</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i> <span id="username-display">Account</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li id="login-item"><a class="dropdown-item" href="pages/login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                            <li id="signup-item"><a class="dropdown-item" href="pages/signup.html"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                            <li id="admin-item" style="display: none;"><a class="dropdown-item" href="pages/admin.html"><i class="fas fa-user-shield"></i> Admin Panel</a></li>
+                            <li id="owner-item" style="display: none;"><a class="dropdown-item" href="pages/owner.html"><i class="fas fa-user-crown"></i> Owner Panel</a></li>
+                            <li id="divider-item" style="display: none;"><hr class="dropdown-divider"></li>
+                            <li id="logout-item" style="display: none;"><a class="dropdown-item" href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link social-link" href="https://discord.gg/mpwBJEYh2A" target="_blank">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="container text-center">
+            <div class="hero-content">
+                <h1>Military Tycoon Value List</h1>
+                <p class="hero-subtitle">Your ultimate guide to vehicle values in Military Tycoon</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Vehicles</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Weekly</span>
+                        <span class="stat-label">Updates</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Community</span>
+                        <span class="stat-label">Driven</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="pages/value-list.html" class="btn btn-primary btn-lg">View Value List</a>
+                    <a href="pages/trade-calculator.html" class="btn btn-secondary btn-lg">Trade Calculator</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container main-content">
+        <div class="section">
+            <h2>Featured Vehicles</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="vehicle-card air">
+                        <div class="vehicle-image">
+                            <img src="https://images.unsplash.com/photo-1620059116993-398c21ce8406" alt="Air Vehicle" class="img-fluid">
+                            <div class="vehicle-category">Air</div>
+                        </div>
+                        <div class="vehicle-details">
+                            <h3>F-22 Raptor</h3>
+                            <div class="vehicle-stats">
+                                <div class="stat"><span>Value:</span> 9500</div>
+                                <div class="stat"><span>Demand:</span> <i class="fas fa-arrow-up high"></i></div>
+                                <div class="stat"><span>Scarcity:</span> <i class="fas fa-circle rare"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="vehicle-card ground">
+                        <div class="vehicle-image">
+                            <img src="https://images.unsplash.com/photo-1621522626370-ec009a90fbf1" alt="Ground Vehicle" class="img-fluid">
+                            <div class="vehicle-category">Ground</div>
+                        </div>
+                        <div class="vehicle-details">
+                            <h3>M1A2 Abrams</h3>
+                            <div class="vehicle-stats">
+                                <div class="stat"><span>Value:</span> 7200</div>
+                                <div class="stat"><span>Demand:</span> <i class="fas fa-arrow-right medium"></i></div>
+                                <div class="stat"><span>Scarcity:</span> <i class="fas fa-circle uncommon"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="vehicle-card naval">
+                        <div class="vehicle-image">
+                            <img src="https://images.unsplash.com/photo-1727007274954-712604e2caf6" alt="Naval Vehicle" class="img-fluid">
+                            <div class="vehicle-category">Naval</div>
+                        </div>
+                        <div class="vehicle-details">
+                            <h3>Nimitz Carrier</h3>
+                            <div class="vehicle-stats">
+                                <div class="stat"><span>Value:</span> 12000</div>
+                                <div class="stat"><span>Demand:</span> <i class="fas fa-arrow-up high"></i></div>
+                                <div class="stat"><span>Scarcity:</span> <i class="fas fa-circle very-rare"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="pages/value-list.html" class="btn btn-primary">View All Vehicles</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>About Military Tycoon Value List</h2>
+            <div class="about-content">
+                <p>Military Tycoon Value List is the most up-to-date resource for vehicle values in the popular Roblox game, Military Tycoon. Our value list is maintained by experienced players and traders to ensure accuracy and reliability.</p>
+                <p>Use our trade calculator to evaluate your trades instantly, and post your trading ads to connect with other players.</p>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-list-ol"></i>
+                        <h3>Complete Value List</h3>
+                        <p>All air, ground, and naval vehicles with detailed stats</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Trade Calculator</h3>
+                        <p>Calculate if your trade is a win, fair, or loss</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <h3>Community Hub</h3>
+                        <p>Connect with other players and discuss trades</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" class="logo">
+                        <rect width="40" height="40" rx="8" fill="#34495e"/>
+                        <text x="8" y="28" fill="#ecf0f1" font-size="24" font-weight="bold">MT</text>
+                    </svg>
+                    <span>Military Tycoon Value List</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="pages/value-list.html">Value List</a>
+                    <a href="pages/trade-calculator.html">Trade Calculator</a>
+                    <a href="pages/community.html">Community</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://discord.gg/mpwBJEYh2A" target="_blank" class="social-link">
+                        <i class="fab fa-discord"></i> Join our Discord
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Military Tycoon Value List. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

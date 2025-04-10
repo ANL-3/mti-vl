@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Ads - Military Tycoon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dark-mode.css" id="theme-style">
+</head>
+<body class="dark-mode">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <svg width="40" height="40" viewBox="0 0 40 40" class="logo">
+                    <rect width="40" height="40" rx="8" fill="#34495e"/>
+                    <text x="8" y="28" fill="#ecf0f1" font-size="24" font-weight="bold">MT</text>
+                </svg>
+                Military Tycoon Value List
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="value-list.html">Value List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="trade-calculator.html">Trade Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="ads.html">Trading Ads</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">Settings</a>
+                    </li>
+                    <li class="nav-item" id="admin-link" style="display: none;">
+                        <a class="nav-link" href="admin.html">Admin Panel</a>
+                    </li>
+                    <li class="nav-item" id="login-link">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item" id="signup-link">
+                        <a class="nav-link" href="signup.html">Sign Up</a>
+                    </li>
+                    <li class="nav-item" id="logout-link" style="display: none;">
+                        <a class="nav-link" href="#" id="logout-btn">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link social-link" href="https://discord.gg/mpwBJEYh2A" target="_blank">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <div class="section">
+            <h1>Trading Advertisements</h1>
+            <p class="lead">Browse current trading ads or post your own to find deals on your desired vehicles.</p>
+
+            <div class="text-center mb-4">
+                <button id="post-ad-btn" class="btn btn-primary btn-lg post-ad-button">
+                    <i class="fas fa-plus-circle"></i> Post A Trading Ad
+                </button>
+            </div>
+
+            <div class="row" id="ad-list">
+                <!-- Ad cards will be dynamically added here -->
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-3">Loading trading ads...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Trading Ad Guidelines</h2>
+            <div class="about-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-info-circle"></i> Important Information</h5>
+                                <ul class="mb-0">
+                                    <li>Ads remain active for 7 days before being automatically removed</li>
+                                    <li>You must verify your email before posting ads</li>
+                                    <li>You can delete your own ads at any time</li>
+                                    <li>Include clear details about what you're trading</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-exclamation-triangle"></i> Rules & Etiquette</h5>
+                                <ul class="mb-0">
+                                    <li>No spamming or duplicate ads</li>
+                                    <li>No offensive content or language</li>
+                                    <li>No real-money trades (in-game items only)</li>
+                                    <li>Be respectful when contacting other traders</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ad Post Modal -->
+    <div class="modal-backdrop" id="ad-modal">
+        <div class="modal-content">
+            <button id="close-modal" class="modal-close">&times;</button>
+            <h2 class="modal-title">Post a Trading Advertisement</h2>
+            <form id="ad-form">
+                <div class="form-group mb-3">
+                    <label for="ad-title" class="form-label">Title</label>
+                    <input type="text" id="ad-title" class="form-control" required>
+                    <div class="form-text">E.g., "Trading F-22 Raptor for Apache + adds"</div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="ad-description" class="form-label">Description</label>
+                    <textarea id="ad-description" class="form-control" rows="4" required></textarea>
+                    <div class="form-text">Describe what you're trading and what you're looking for</div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="ad-image-url" class="form-label">Image URL (Optional)</label>
+                    <input type="url" id="ad-image-url" class="form-control">
+                    <div class="form-text">Provide a URL to an image of your vehicles</div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Post Advertisement</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" class="logo">
+                        <rect width="40" height="40" rx="8" fill="#34495e"/>
+                        <text x="8" y="28" fill="#ecf0f1" font-size="24" font-weight="bold">MT</text>
+                    </svg>
+                    <span>Military Tycoon Value List</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="value-list.html">Value List</a>
+                    <a href="trade-calculator.html">Trade Calculator</a>
+                    <a href="ads.html">Trading Ads</a>
+                    <a href="settings.html">Settings</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://discord.gg/mpwBJEYh2A" target="_blank" class="social-link">
+                        <i class="fab fa-discord"></i> Join our Discord
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Military Tycoon Value List. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/trading-ads.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

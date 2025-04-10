@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Military Tycoon Value List</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../generated-icon.png">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Military Tycoon Value List admin panel for managing vehicles, users, and site content.">
+    <meta name="keywords" content="Military Tycoon, Roblox, value list, admin, vehicles">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Admin Panel - Military Tycoon Value List">
+    <meta property="og:description" content="Military Tycoon Value List admin panel for managing vehicles, users, and site content.">
+    <meta property="og:image" content="../generated-icon.png">
+    <meta property="og:url" content="https://militarytycoonvalues.com/admin">
+    <meta property="og:type" content="website">
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    
+    <style>
+        .admin-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .admin-table {
+            width: 100%;
+            margin-top: 1rem;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .admin-table th,
+        .admin-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .admin-table th {
+            background-color: var(--section-bg);
+            color: var(--text-color);
+            font-weight: 600;
+            text-align: left;
+        }
+        
+        .admin-table tbody tr:hover {
+            background-color: var(--hover-color);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .stats-item {
+            background-color: var(--section-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .stats-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stats-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #3498db;
+        }
+        
+        .stats-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+        }
+        
+        .stats-label {
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+        }
+        
+        .admin-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .admin-modal-content {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .user-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .user-badge.admin {
+            background-color: #3498db;
+            color: #fff;
+        }
+        
+        .user-badge.owner {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+        
+        .user-badge.user {
+            background-color: #95a5a6;
+            color: #fff;
+        }
+        
+        .logs-container {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .log-entry {
+            padding: 0.25rem 0;
+            border-bottom: 1px solid #34495e;
+        }
+        
+        .log-time {
+            color: #3498db;
+        }
+        
+        .log-type {
+            font-weight: bold;
+        }
+        
+        .log-type.info {
+            color: #2ecc71;
+        }
+        
+        .log-type.warning {
+            color: #f39c12;
+        }
+        
+        .log-type.error {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <svg width="40" height="40" viewBox="0 0 40 40" class="logo">
+                        <rect width="40" height="40" rx="8" fill="#34495e"/>
+                        <text x="8" y="28" fill="#ecf0f1" font-size="24" font-weight="bold">MT</text>
+                    </svg>
+                    <span>Military Tycoon Value List</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="value-list.html">Value List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="trade-calculator.html">Trade Calculator</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="community.html">Community</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user-circle"></i> <span id="username-display">Account</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li id="login-item"><a class="dropdown-item" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                                <li id="signup-item"><a class="dropdown-item" href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                                <li id="admin-item" style="display: none;"><a class="dropdown-item" href="admin.html"><i class="fas fa-user-shield"></i> Admin Panel</a></li>
+                                <li id="owner-item" style="display: none;"><a class="dropdown-item" href="owner.html"><i class="fas fa-user-crown"></i> Owner Panel</a></li>
+                                <li id="logout-item" style="display: none;"><hr class="dropdown-divider"></li>
+                                <li id="logout-item" style="display: none;"><a class="dropdown-item" href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="admin-banner">
+        <div class="container">
+            <h1><i class="fas fa-user-shield"></i> Admin Panel</h1>
+            <p>Manage vehicles, users, and site content</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container py-5">
+            <div id="admin-access-denied" class="alert alert-danger" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i> Access Denied! You must be an admin to view this page.
+            </div>
+            
+            <div id="admin-content" style="display: none;">
+                <!-- Statistics Overview -->
+                <div class="admin-section">
+                    <h2><i class="fas fa-chart-line"></i> Dashboard Overview</h2>
+                    <div class="row row-cols-1 row-cols-md-4 g-4 mt-2">
+                        <div class="col">
+                            <div class="stats-item">
+                                <div class="stats-icon"><i class="fas fa-car"></i></div>
+                                <div class="stats-value" id="total-vehicles">0</div>
+                                <div class="stats-label">Total Vehicles</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="stats-item">
+                                <div class="stats-icon"><i class="fas fa-users"></i></div>
+                                <div class="stats-value" id="total-users">0</div>
+                                <div class="stats-label">Registered Users</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="stats-item">
+                                <div class="stats-icon"><i class="fas fa-comments"></i></div>
+                                <div class="stats-value" id="total-posts">0</div>
+                                <div class="stats-label">Community Posts</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="stats-item">
+                                <div class="stats-icon"><i class="fas fa-exchange-alt"></i></div>
+                                <div class="stats-value" id="total-trades">0</div>
+                                <div class="stats-label">Trade Offers</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vehicles Management Section -->
+                <div class="admin-section">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2><i class="fas fa-car"></i> Vehicle Management</h2>
+                        <button class="btn btn-primary" id="add-vehicle-btn">
+                            <i class="fas fa-plus"></i> Add Vehicle
+                        </button>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <input type="text" id="vehicle-search" class="form-control" placeholder="Search vehicles...">
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Value</th>
+                                    <th>Demand</th>
+                                    <th>Trend</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vehicles-table-body">
+                                <!-- Vehicle rows will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- User Management Section -->
+                <div class="admin-section">
+                    <h2><i class="fas fa-users"></i> User Management</h2>
+                    
+                    <div class="mb-3">
+                        <input type="text" id="user-search" class="form-control" placeholder="Search users...">
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Joined Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table-body">
+                                <!-- User rows will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Content Moderation Section -->
+                <div class="admin-section">
+                    <h2><i class="fas fa-shield-alt"></i> Content Moderation</h2>
+                    
+                    <ul class="nav nav-tabs" id="contentTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="posts-tab" data-bs-toggle="tab" data-bs-target="#posts" type="button" role="tab" aria-controls="posts" aria-selected="true">Posts</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="trade-offers-tab" data-bs-toggle="tab" data-bs-target="#trade-offers" type="button" role="tab" aria-controls="trade-offers" aria-selected="false">Trade Offers</button>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content" id="contentTabsContent">
+                        <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                            <div class="table-responsive mt-3">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Author</th>
+                                            <th>Date</th>
+                                            <th>Replies</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="posts-table-body">
+                                        <!-- Posts will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="trade-offers" role="tabpanel" aria-labelledby="trade-offers-tab">
+                            <div class="table-responsive mt-3">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Author</th>
+                                            <th>Offering</th>
+                                            <th>Looking For</th>
+                                            <th>Date</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="trade-offers-table-body">
+                                        <!-- Trade offers will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- System Logs Section -->
+                <div class="admin-section">
+                    <h2><i class="fas fa-clipboard-list"></i> System Logs</h2>
+                    
+                    <div class="logs-container">
+                        <div class="log-entry">
+                            <span class="log-time">[2023-04-09 15:42:11]</span> <span class="log-type info">INFO</span> System initialized
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">[2023-04-09 15:42:15]</span> <span class="log-type info">INFO</span> User login: admin@example.com
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">[2023-04-09 15:45:23]</span> <span class="log-type warning">WARNING</span> Failed login attempt: unknown@example.com
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">[2023-04-09 16:01:05]</span> <span class="log-type info">INFO</span> Vehicle updated: Military Helicopter
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">[2023-04-09 16:15:30]</span> <span class="log-type info">INFO</span> New user registered: user123@example.com
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">[2023-04-09 16:30:12]</span> <span class="log-type error">ERROR</span> Database connection error
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">[2023-04-09 16:32:18]</span> <span class="log-type info">INFO</span> Database connection restored
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add Vehicle Modal -->
+    <div class="admin-modal" id="add-vehicle-modal" style="display: none;">
+        <div class="admin-modal-content">
+            <h3>Add New Vehicle</h3>
+            <form id="add-vehicle-form">
+                <div class="mb-3">
+                    <label for="vehicle-name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="vehicle-name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="vehicle-type" class="form-label">Type</label>
+                    <select class="form-select" id="vehicle-type" required>
+                        <option value="">Select Type</option>
+                        <option value="car">Car</option>
+                        <option value="truck">Truck</option>
+                        <option value="tank">Tank</option>
+                        <option value="helicopter">Helicopter</option>
+                        <option value="plane">Plane</option>
+                        <option value="boat">Boat</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="vehicle-image" class="form-label">Image URL</label>
+                    <input type="url" class="form-control" id="vehicle-image">
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="vehicle-value" class="form-label">Value</label>
+                        <input type="number" class="form-control" id="vehicle-value" min="0" required>
+                    </div>
+                    <div class="col">
+                        <label for="vehicle-demand" class="form-label">Demand (1-5)</label>
+                        <input type="number" class="form-control" id="vehicle-demand" min="1" max="5" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="vehicle-rarity" class="form-label">Rarity (1-5)</label>
+                        <input type="number" class="form-control" id="vehicle-rarity" min="1" max="5" required>
+                    </div>
+                    <div class="col">
+                        <label for="vehicle-trend" class="form-label">Trend</label>
+                        <select class="form-select" id="vehicle-trend" required>
+                            <option value="">Select Trend</option>
+                            <option value="rising">Rising</option>
+                            <option value="stable">Stable</option>
+                            <option value="falling">Falling</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="vehicle-functionality" class="form-label">Functionality (1-5)</label>
+                    <input type="number" class="form-control" id="vehicle-functionality" min="1" max="5" required>
+                </div>
+                <div class="d-flex justify-content-end gap-2">
+                    <button type="button" class="btn btn-secondary" id="cancel-add-vehicle">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Vehicle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Edit Vehicle Modal -->
+    <div class="admin-modal" id="edit-vehicle-modal" style="display: none;">
+        <div class="admin-modal-content">
+            <h3>Edit Vehicle</h3>
+            <form id="edit-vehicle-form">
+                <input type="hidden" id="edit-vehicle-id">
+                <div class="mb-3">
+                    <label for="edit-vehicle-name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="edit-vehicle-name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="edit-vehicle-type" class="form-label">Type</label>
+                    <select class="form-select" id="edit-vehicle-type" required>
+                        <option value="">Select Type</option>
+                        <option value="car">Car</option>
+                        <option value="truck">Truck</option>
+                        <option value="tank">Tank</option>
+                        <option value="helicopter">Helicopter</option>
+                        <option value="plane">Plane</option>
+                        <option value="boat">Boat</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="edit-vehicle-image" class="form-label">Image URL</label>
+                    <input type="url" class="form-control" id="edit-vehicle-image">
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="edit-vehicle-value" class="form-label">Value</label>
+                        <input type="number" class="form-control" id="edit-vehicle-value" min="0" required>
+                    </div>
+                    <div class="col">
+                        <label for="edit-vehicle-demand" class="form-label">Demand (1-5)</label>
+                        <input type="number" class="form-control" id="edit-vehicle-demand" min="1" max="5" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="edit-vehicle-rarity" class="form-label">Rarity (1-5)</label>
+                        <input type="number" class="form-control" id="edit-vehicle-rarity" min="1" max="5" required>
+                    </div>
+                    <div class="col">
+                        <label for="edit-vehicle-trend" class="form-label">Trend</label>
+                        <select class="form-select" id="edit-vehicle-trend" required>
+                            <option value="">Select Trend</option>
+                            <option value="rising">Rising</option>
+                            <option value="stable">Stable</option>
+                            <option value="falling">Falling</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="edit-vehicle-functionality" class="form-label">Functionality (1-5)</label>
+                    <input type="number" class="form-control" id="edit-vehicle-functionality" min="1" max="5" required>
+                </div>
+                <div class="d-flex justify-content-end gap-2">
+                    <button type="button" class="btn btn-secondary" id="cancel-edit-vehicle">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Vehicle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" class="logo">
+                        <rect width="40" height="40" rx="8" fill="#34495e"/>
+                        <text x="8" y="28" fill="#ecf0f1" font-size="24" font-weight="bold">MT</text>
+                    </svg>
+                    <span>Military Tycoon Value List</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="value-list.html">Value List</a>
+                    <a href="trade-calculator.html">Trade Calculator</a>
+                    <a href="community.html">Community</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://discord.gg/mpwBJEYh2A" target="_blank" class="social-link">
+                        <i class="fab fa-discord"></i> Join our Discord
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Military Tycoon Value List. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/admin-panel.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

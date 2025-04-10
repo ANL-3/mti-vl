@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Military Tycoon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dark-mode.css" id="theme-style">
+</head>
+<body class="dark-mode">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <svg width="40" height="40" viewBox="0 0 40 40" class="logo">
+                    <rect width="40" height="40" rx="8" fill="#34495e"/>
+                    <text x="8" y="28" fill="#ecf0f1" font-size="24" font-weight="bold">MT</text>
+                </svg>
+                Military Tycoon Value List
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="value-list.html">Value List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="trade-calculator.html">Trade Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ads.html">Trading Ads</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="settings.html">Settings</a>
+                    </li>
+                    <li class="nav-item" id="admin-link" style="display: none;">
+                        <a class="nav-link" href="admin.html">Admin Panel</a>
+                    </li>
+                    <li class="nav-item" id="login-link">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item" id="signup-link">
+                        <a class="nav-link" href="signup.html">Sign Up</a>
+                    </li>
+                    <li class="nav-item" id="logout-link" style="display: none;">
+                        <a class="nav-link" href="#" id="logout-btn">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link social-link" href="https://discord.gg/mpwBJEYh2A" target="_blank">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <div class="section">
+            <h1>Settings</h1>
+            <p class="lead">Customize your experience on Military Tycoon Value List.</p>
+
+            <div class="settings-container">
+                <div class="settings-section">
+                    <h3 class="settings-title">Appearance</h3>
+                    <div class="settings-option">
+                        <div>
+                            <div class="settings-label">Dark Mode</div>
+                            <div class="settings-description">Switch between dark and light theme</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="dark-mode-toggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="settings-section">
+                    <h3 class="settings-title">Notifications</h3>
+                    <div class="settings-option">
+                        <div>
+                            <div class="settings-label">Trade Notifications</div>
+                            <div class="settings-description">Receive notifications about new trades and value updates</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="trade-notifications-toggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3 class="settings-title">Interactions</h3>
+                    <div class="settings-option">
+                        <div>
+                            <div class="settings-label">Sound Effects</div>
+                            <div class="settings-description">Play sound effects when interacting with the website</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="sound-effects-toggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button id="save-settings-btn" class="btn btn-primary">Save Settings</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="account-section">
+            <h2>Account Settings</h2>
+            <div id="account-settings-container">
+                <!-- Account settings will be dynamically added here if user is logged in -->
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> Please log in to manage your account settings.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" class="logo">
+                        <rect width="40" height="40" rx="8" fill="#34495e"/>
+                        <text x="8" y="28" fill="#ecf0f1" font-size="24" font-weight="bold">MT</text>
+                    </svg>
+                    <span>Military Tycoon Value List</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="value-list.html">Value List</a>
+                    <a href="trade-calculator.html">Trade Calculator</a>
+                    <a href="ads.html">Trading Ads</a>
+                    <a href="settings.html">Settings</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://discord.gg/mpwBJEYh2A" target="_blank" class="social-link">
+                        <i class="fab fa-discord"></i> Join our Discord
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Military Tycoon Value List. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/app.js"></script>
+
+    <script>
+        // Display account settings if user is logged in
+        auth.onAuthStateChanged(user => {
+            const accountSettingsContainer = document.getElementById('account-settings-container');
+            if (user && accountSettingsContainer) {
+                // Get user data
+                db.collection('users').doc(user.uid).get()
+                    .then(doc => {
+                        if (doc.exists) {
+                            const userData = doc.data();
+                            accountSettingsContainer.innerHTML = `
+                                <div class="settings-container">
+                                    <div class="settings-section">
+                                        <div class="settings-option">
+                                            <div>
+                                                <div class="settings-label">Username</div>
+                                                <div class="settings-description">${userData.username}</div>
+                                            </div>
+                                        </div>
+                                        <div class="settings-option">
+                                            <div>
+                                                <div class="settings-label">Email</div>
+                                                <div class="settings-description">${userData.email}</div>
+                                            </div>
+                                        </div>
+                                        <div class="settings-option">
+                                            <div>
+                                                <div class="settings-label">Email Verification</div>
+                                                <div class="settings-description">
+                                                    ${user.emailVerified ? 
+                                                        '<span class="text-success"><i class="fas fa-check-circle"></i> Verified</span>' : 
+                                                        '<span class="text-warning"><i class="fas fa-exclamation-circle"></i> Not Verified</span>'}
+                                                </div>
+                                            </div>
+                                            ${!user.emailVerified ? 
+                                                '<button class="btn btn-warning btn-sm" id="resend-verification">Resend Verification</button>' : ''}
+                                        </div>
+                                        <div class="settings-option">
+                                            <div>
+                                                <div class="settings-label">Account Role</div>
+                                                <div class="settings-description">${userData.role || 'User'}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            // Add event listener for resend verification button
+                            const resendBtn = document.getElementById('resend-verification');
+                            if (resendBtn) {
+                                resendBtn.addEventListener('click', () => {
+                                    sendVerificationEmail()
+                                        .then(() => {
+                                            showAlert("Verification email has been sent! Please check your inbox.", "success");
+                                        })
+                                        .catch(error => {
+                                            showAlert("Error sending verification email: " + error.message, "danger");
+                                        });
+                                });
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error getting user data:", error);
+                        accountSettingsContainer.innerHTML = `
+                            <div class="alert alert-danger">
+                                <i class="fas fa-exclamation-circle"></i> Error loading account data. Please try again.
+                            </div>
+                        `;
+                    });
+            }
+        });
+    </script>
+</body>
+</html>

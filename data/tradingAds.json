@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sample1",
+    "title": "Trading F-22 Raptor for Nimitz Carrier",
+    "description": "Willing to trade my F-22 Raptor plus additional items for a Nimitz Carrier. DM me to discuss.",
+    "imageUrl": "https://images.unsplash.com/photo-1620059116993-398c21ce8406",
+    "userId": "1",
+    "username": "Aero",
+    "createdAt": "2023-09-15T12:00:00.000Z",
+    "daysRemaining": 5
+  },
+  {
+    "id": "sample2",
+    "title": "Looking for M1A2 Abrams",
+    "description": "I have several rare vehicles to trade. Looking for an M1A2 Abrams in good condition.",
+    "imageUrl": "https://images.unsplash.com/photo-1621522626370-ec009a90fbf1",
+    "userId": "2",
+    "username": "TankLover",
+    "createdAt": "2023-09-16T15:30:00.000Z",
+    "daysRemaining": 6
+  },
+  {
+    "id": "sample3",
+    "title": "Virginia Class Sub for Trade",
+    "description": "Virginia Class Submarine available for trade. Looking for air or ground vehicles of equivalent value.",
+    "imageUrl": "https://images.unsplash.com/photo-1511213966740-24d719a0a814",
+    "userId": "3",
+    "username": "NavySeals",
+    "createdAt": "2023-09-14T09:45:00.000Z",
+    "daysRemaining": 4
+  }
+]
